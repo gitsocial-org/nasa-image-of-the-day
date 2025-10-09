@@ -1,0 +1,32 @@
+name: Daily Image of the Day
+
+on:
+  schedule:
+    - cron: '30 12 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  post-potd:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Configure git
+        run: |
+          git config user.name "NASA IOTD Bot"
+          git config user.email "bot@gitsocial.org"
+
+      - name: Fetch and commit Image of the Day
+        run: ./scripts/commit-potd.sh
+
+      - name: Push changes
+        run: git push origin main

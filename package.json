@@ -1,0 +1,23 @@
+{
+  "name": "nasa-image-of-the-day",
+  "version": "1.0.0",
+  "description": "Automated GitSocial bot posting NASA Image of the Day",
+  "type": "module",
+  "scripts": {
+    "fetch": "node scripts/fetch-potd.js",
+    "test": "node scripts/fetch-potd.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gitsocial-org/nasa-image-of-the-day.git"
+  },
+  "keywords": [
+    "nasa",
+    "commons",
+    "image-of-the-day",
+    "gitsocial",
+    "bot"
+  ],
+  "author": "GitSocial",
+  "license": "MIT"
+}
